@@ -13,20 +13,20 @@ content-type: application/json
     "sobre":"Sou lindo"
 }
 ###
-PUT http://localhost:3000/usuarios/44924836-3e56-4219-8f8d-117ae2513e40
+PUT http://localhost:3000/usuarios/0f5ed0d5-6d93-4207-8552-4df03c59ec4b
 Content-Type: application/json
 
 {
-    "nome":"john doe",
-    "email":"john.doe@gmail.com",
-    "dataDeAniversario":"12/03/1999",
-    "morada":"Logo ali",
-    "telefone":"123123",
-    "stack":"Front-end",
-    "sobre":"Sou lindo"
+    "nome":"john asdasdasdoe",
+    "email":"john.asdasdasdoe@gmail.com",
+    "dataDeAniversario":"12dasdasdasd/03/1999",
+    "morada":"Logasdasdasdo ali",
+    "telefone":"12asdasda3123",
+    "stack":"Fronsdasdasdt-end",
+    "sobre":"Sou asdaslindo"
 }
 ###
-PATCH http://localhost:3000/usuarios/9ca365a3-44b3-41e0-b348-ad420a990f90
+PATCH http://localhost:3000/usuarios/1238f07b-2f3c-4979-af00-4bf22b644528
 Content-Type: application/json
 
 {
@@ -35,4 +35,4 @@ Content-Type: application/json
     "sobre":"Sou feio"
 }
 ###
-DELETE http://localhost:3000/usuarios/44924836-3e56-4219-8f8d-117ae2513e40
+DELETE http://localhost:3000/usuarios/1238f07b-2f3c-4979-af00-4bf22b644528
