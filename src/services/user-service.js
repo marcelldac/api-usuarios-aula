@@ -41,8 +41,8 @@ exports.update = (request, response) => {
       request.body;
     const index = findIndexWithID(usuarios, id);
 
-    if (index === -1) {
-      return response.status(404).json({ error: "Usuário não encontrado" });
+    if (index === 404) {
+      return response.status(404).json("Not found");
     }
 
     const payload = {
@@ -69,6 +69,9 @@ exports.updateOneAttr = (request, response) => {
     const { nome, email, dataDeAniversario, morada, telefone, stack, sobre } =
       request.body;
     const index = findIndexWithID(usuarios, id);
+    if (index === 404) {
+      return response.status(404).json("Not found");
+    }
     const payload = {
       nome: nome || usuarios[index].nome,
       email: email || usuarios[index].email,
@@ -90,6 +93,9 @@ exports.remove = (request, response) => {
   try {
     const { id } = request.params;
     const index = findIndexWithID(usuarios, id);
+    if (index === 404) {
+      return response.status(404).json("Not found");
+    }
     usuarios.splice(index, 1);
     return response.sendStatus(204);
   } catch (error) {

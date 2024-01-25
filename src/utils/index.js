@@ -12,5 +12,10 @@ exports.findIndexWithID = (data, id) => {
   const index = data.findIndex((d) => {
     return d.id === id;
   });
+
+  if (index === -1) {
+    return 404;
+  }
+
   return index;
 };
