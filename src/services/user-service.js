@@ -66,20 +66,27 @@ exports.update = (request, response) => {
 exports.updateOneAttr = (request, response) => {
   try {
     const { id } = request.params;
-    const { nome, email, dataDeAniversario, morada, telefone, stack, sobre } =
-      request.body;
     const index = findIndexWithID(usuarios, id);
     if (index === 404) {
       return response.status(404).json("Not found");
     }
+    const {
+      nome = usuarios[index].nome,
+      email = usuarios[index].email,
+      dataDeAniversario = usuarios[index].dataDeAniversario,
+      morada = usuarios[index].morada,
+      telefone = usuarios[index].telefone,
+      stack = usuarios[index].stack,
+      sobre = usuarios[index].sobre,
+    } = request.body;
     const payload = {
-      nome: nome || usuarios[index].nome,
-      email: email || usuarios[index].email,
-      dataDeAniversario: dataDeAniversario || usuarios[index].dataDeAniversario,
-      morada: morada || usuarios[index].morada,
-      telefone: telefone || usuarios[index].telefone,
-      stack: stack || usuarios[index].stack,
-      sobre: sobre || usuarios[index].sobre,
+      nome,
+      email,
+      dataDeAniversario,
+      morada,
+      telefone,
+      stack,
+      sobre,
     };
     updateUserAttrs(usuarios, index, payload);
     return response.status(200).json(usuarios[index]);
@@ -93,9 +100,11 @@ exports.remove = (request, response) => {
   try {
     const { id } = request.params;
     const index = findIndexWithID(usuarios, id);
+
     if (index === 404) {
       return response.status(404).json("Not found");
     }
+
     usuarios.splice(index, 1);
     return response.sendStatus(204);
   } catch (error) {
